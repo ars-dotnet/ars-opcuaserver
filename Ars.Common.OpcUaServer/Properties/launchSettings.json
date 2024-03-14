@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Ars.Common.OpcUaServer": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}

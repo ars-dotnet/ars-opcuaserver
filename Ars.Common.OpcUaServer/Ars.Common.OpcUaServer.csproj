@@ -1,0 +1,55 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="..\XmlFile\settings.xml" Link="settings.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.5" />
+    <PackageReference Include="OPCFoundation.NetStandard.Opc.Ua.Core" Version="1.5.374.27" />
+    <PackageReference Include="OPCFoundation.NetStandard.Opc.Ua.Server" Version="1.5.374.27" />
+	<PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />
+	<PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.0" />
+	<PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="6.0.0" />
+	<PackageReference Include="Mono.Options" Version="6.12.0.148" />
+	<PackageReference Include="Serilog" Version="3.1.1" />
+	<PackageReference Include="Serilog.Expressions" Version="4.0.0" />
+	<PackageReference Include="Serilog.Sinks.Console" Version="5.0.0" />
+	<PackageReference Include="Serilog.Extensions.Logging" Version="3.1.0" />
+	<PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
+	<PackageReference Include="Serilog.Sinks.Debug" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Ars.Common.OpcUaTool\Ars.Common.OpcUaTool.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Quickstarts.Servers">
+      <HintPath>..\dll\Quickstarts.Servers.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Dockerfile">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Quickstarts.MonoReferenceServer.Config.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Quickstarts.ReferenceServer.Config.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

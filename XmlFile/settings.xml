@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Settings>
+	<NodeClass Name="Devices" Description="所有的设备的集合对象">
+		<NodeClass Name="WorkFactory01" Description="">
+			<!-- DeviceType[1:三菱Qna-3E; 10:modbus-tcp; 20:异形Modbus-Tcp; 30:西门子; 40:欧姆龙; 50:SimplifyNet服务器]  -->
+			<!-- DataFormat[0:ABCD; 1:BADC; 2:CDAB; 3:DCBA] -->
+			<NodeClass Name="WorkShop01" Description="">
+				<DeviceNode Name="MelsecTest" Description="三菱PLC" DeviceType="1" IpAddress="172.20.64.1" Port="5007" ConnectTimeOut="2000" CreateTime="2018/8/12 9:26:27" InstallationDate="2018/8/12 9:26:27">
+					<DeviceRequest Name="数据请求" Description="一次完整的数据请求" Address="D100" Length="300" CaptureInterval="1000" PraseRegularCode="Regular01" />
+				</DeviceNode>
+			</NodeClass>
+			<!--<NodeClass Name="WorkShop02" Description="">
+				<DeviceNode Name="ModbusTcpTest" Description="这是描述" DeviceType="10" ConnectTimeOut="1000" CreateTime="2018/8/9 19:58:49" InstallationDate="2018/8/9 19:58:49" IpAddress="192.168.110.65" Port="502" Station="1" IsAddressStartWithZero="true" DataFormat="0" IsStringReverse="false">
+					<DeviceRequest Name="数据请求" Description="一次完整的数据请求" Address="0" Length="300" CaptureInterval="1000" PraseRegularCode="Regular01" />
+				</DeviceNode>
+			</NodeClass>-->
+		</NodeClass>
+		<!--<NodeClass Name="分厂二" Description="位于西南方">
+			<NodeClass Name="车间三" Description="">
+				<DeviceNode Name="ModbusTcp客户端02" Description="这是测试设备二的描述" DeviceType="10" ConnectTimeOut="1000" CreateTime="2018/8/10 23:01:28" InstallationDate="2018/8/10 23:01:28" IpAddress="127.0.0.1" Port="502" Station="1" IsAddressStartWithZero="true" DataFormat="3" IsStringReverse="false">
+					<DeviceRequest Name="数据请求" Description="一次完整的数据请求" Address="100" Length="10" CaptureInterval="500" PraseRegularCode="Regular02" />
+				</DeviceNode>
+			</NodeClass>
+		</NodeClass>-->
+	</NodeClass>
+	<NodeClass Name="Server" Description="所有挂载的服务器">
+		<ServerNode Name="异形服务器" Description="这是一个异形服务器" CreateTime="2018/8/8 13:29:30" Port="1234" ServerType="2" Password="" />
+	</NodeClass>
+	<NodeClass Name="Regular" Description="所有的解析规则的信息">
+		<RegularNode Name="Regular01" Description="">
+			<!--       
+			    TypeCode(几个字节)
+			    1: Bool(1);  2: Byte(1);    3: Int16(2);        4: UInt16(2);
+                5: Int32(4); 6: UInt32(4);  7: Int64(8);        8: UInt64(8);
+                9: Float(4); 10: Double(8); 11: StringAscii; 12:StringUnicode;
+                13: StringUtf8;
+				bool的index测试有问题
+				
+				Index从0开始
+				Index=0=D100,
+				Index=2=D101,
+				Index=4=D102,
+				Index=6=D103,
+				Index=10=D105,
+				
+				TypeLength代表读取位数
+				如Index=2,TypeLength=2,读取到的是[D101,D102]short类型数组
+			-->
+			<!-- short要写256才行 -->
+			<RegularItemNode Name="bool" Description="" Index="8" TypeCode="1" TypeLength="1" />
+			
+			<RegularItemNode Name="Int16" Description="" Index="2" TypeCode="3" TypeLength="2" />
+			<RegularItemNode Name="UInt16" Description="" Index="4" TypeCode="4" TypeLength="1" />
+
+			<RegularItemNode Name="Int32" Description="" Index="6" TypeCode="5" TypeLength="1" />
+			<RegularItemNode Name="UInt32" Description="" Index="10" TypeCode="6" TypeLength="1" />
+			<RegularItemNode Name="Int64" Description="" Index="14" TypeCode="7" TypeLength="1" />
+			<RegularItemNode Name="UInt64" Description="" Index="22" TypeCode="8" TypeLength="1" />
+
+			<RegularItemNode Name="Float" Description="" Index="30" TypeCode="9" TypeLength="1" />
+			<RegularItemNode Name="Double" Description="" Index="34" TypeCode="10" TypeLength="1" />
+
+			<RegularItemNode Name="String" Description="" Index="50" TypeCode="11" TypeLength="8" />
+			<RegularItemNode Name="bool[]" Description="" Index="480" TypeCode="1" TypeLength="8" />
+		</RegularNode>
+		<RegularNode Name="Regular02" Description="">
+			<RegularItemNode Name="温度" Description="" Index="900" TypeCode="3" TypeLength="1" />
+			<RegularItemNode Name="压力" Description="" Index="910" TypeCode="3" TypeLength="1" />
+			<RegularItemNode Name="条码" Description="" Index="920" TypeCode="11" TypeLength="10" />
+		</RegularNode>
+	</NodeClass>
+</Settings>
