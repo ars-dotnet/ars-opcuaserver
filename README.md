@@ -159,12 +159,5 @@ if (selectDevice.ShowDialog( ) == DialogResult.OK)
 ![Picture](https://raw.githubusercontent.com/dathlin/SharpNodeSettings/master/Imgs/OpcUaServer.png)
 
 
-## License
-* OpcUa相关的组件的版权归 OPC 基金会所有，使用请遵循相关的协议
-* **SharpNodeSettings** 组件协议 LGPL3.0 商用需要向作者打赏，金额需要 50 RMB - 100 RMB
-* 示例项目（SampleServer,RedisServer,OpcUaServer,Tools）协议为MIT协议
-
-## Support
-![打赏](https://raw.githubusercontent.com/dathlin/HslCommunication/master/imgs/support.png)
 
 
